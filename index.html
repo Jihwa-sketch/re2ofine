@@ -824,11 +824,18 @@ function updateLive() {
 }
 
 /* ── PHONE FORMAT ─────────────────── */
+$('fphone').addEventListener('focus', function () {
+  if (!this.value) this.value = '010-';
+  setTimeout(() => this.setSelectionRange(this.value.length, this.value.length), 0);
+});
+
 $('fphone').addEventListener('input', function () {
   let v = this.value.replace(/\D/g, '');
-  if (v.length <= 3)      this.value = v;
-  else if (v.length <= 7) this.value = v.slice(0,3) + '-' + v.slice(3);
-  else                    this.value = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7,11);
+  if (v.length < 3) v = '010';
+  const rest = v.slice(3);
+  if (rest.length === 0)     this.value = '010-';
+  else if (rest.length <= 4) this.value = '010-' + rest;
+  else                       this.value = '010-' + rest.slice(0,4) + '-' + rest.slice(4,8);
 });
 
 /* ── AGREEMENT ────────────────────── */
