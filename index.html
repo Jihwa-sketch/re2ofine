@@ -8,7 +8,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     :root {
-      /* TDS Color Tokens */
       --blue-50:  #e8f3ff;
       --blue-500: #3182f6;
       --blue-600: #2272eb;
@@ -45,23 +44,19 @@
       background: var(--grey-100);
     }
 
-    /* ─── TOP BAR (TDS Top) ──────────────── */
+    /* ─── TOP BAR ──────────────────────── */
     .top-bar {
       position: fixed;
-      top: 0;
-      left: 50%;
+      top: 0; left: 50%;
       transform: translateX(-50%);
-      width: 100%;
-      max-width: 393px;
+      width: 100%; max-width: 393px;
       background: var(--grey-100);
       z-index: 300;
     }
 
     .top-inner {
-      display: flex;
-      align-items: center;
-      height: 56px;
-      padding: 0 4px;
+      display: flex; align-items: center;
+      height: 56px; padding: 0 4px;
     }
 
     .top-back {
@@ -69,148 +64,98 @@
       display: flex; align-items: center; justify-content: center;
       background: none; border: none; cursor: pointer;
       color: var(--grey-900); border-radius: 50%;
-      transition: background 0.15s;
-      flex-shrink: 0;
+      transition: background 0.15s; flex-shrink: 0;
     }
     .top-back:active { background: var(--grey-200); }
     .top-back.hidden { visibility: hidden; pointer-events: none; }
 
     .top-title {
-      flex: 1;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--grey-500);
-      text-align: center;
-      letter-spacing: -0.1px;
+      flex: 1; font-size: 15px; font-weight: 600;
+      color: var(--grey-500); text-align: center; letter-spacing: -0.1px;
     }
 
     .top-spacer { width: 48px; flex-shrink: 0; }
 
-    /* TDS Progress Stepper */
     .progress-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0 20px 14px;
+      display: flex; align-items: center;
+      gap: 6px; padding: 0 20px 14px;
     }
 
     .p-seg {
-      flex: 1;
-      height: 2px;
-      border-radius: 99px;
-      background: var(--grey-200);
-      transition: background 0.3s;
+      flex: 1; height: 2px; border-radius: 99px;
+      background: var(--grey-200); transition: background 0.3s;
     }
-    .p-seg.active  { background: var(--blue-500); }
-    .p-seg.done    { background: var(--blue-500); opacity: 0.3; }
+    .p-seg.active { background: var(--blue-500); }
+    .p-seg.done   { background: var(--blue-500); opacity: 0.3; }
 
-    /* ─── SCREENS ────────────────────────── */
+    /* ─── SCREENS ────────────────────── */
     .screen { display: none; padding: 76px 0 130px; min-height: 100vh; }
     .screen.on { display: block; animation: up .22s ease; }
     @keyframes up { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 
-    /* Screen heading */
     .s-head { padding: 20px 24px 28px; }
-    .s-step { font-size: 13px; font-weight: 600; color: var(--blue-500); letter-spacing: .06em; margin-bottom: 8px; }
+    .s-step  { font-size: 13px; font-weight: 600; color: var(--blue-500); letter-spacing: .06em; margin-bottom: 8px; }
     .s-title { font-size: 26px; font-weight: 800; line-height: 1.25; letter-spacing: -.5px; color: var(--grey-900); margin-bottom: 6px; }
     .s-desc  { font-size: 15px; color: var(--grey-600); line-height: 1.55; }
 
-    /* ─── TDS TextField ──────────────────── */
+    /* ─── TextField ──────────────────── */
     .tf-block { background: #fff; border-radius: 16px; padding: 6px 0; margin: 0 16px 10px; }
 
     .tf-row {
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
       padding: 14px 20px 10px;
       border-bottom: 1px solid var(--grey-100);
       position: relative;
     }
     .tf-row:last-child { border-bottom: none; }
 
-    .tf-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--grey-500);
-      margin-bottom: 6px;
-      letter-spacing: .02em;
-    }
+    .tf-label { font-size: 12px; font-weight: 600; color: var(--grey-500); margin-bottom: 6px; letter-spacing: .02em; }
 
     .tf-input {
-      border: none;
-      outline: none;
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--grey-900);
-      background: transparent;
-      padding: 0;
-      font-family: inherit;
-      width: 100%;
-      -webkit-appearance: none;
+      border: none; outline: none;
+      font-size: 17px; font-weight: 500; color: var(--grey-900);
+      background: transparent; padding: 0; font-family: inherit;
+      width: 100%; -webkit-appearance: none;
     }
     .tf-input::placeholder { color: var(--grey-400); font-weight: 400; }
 
-    .tf-hint  { font-size: 13px; color: var(--grey-500); margin-top: 5px; padding: 0 20px 10px; }
-    .tf-err   { font-size: 13px; color: var(--red-500);  display: none; padding: 4px 20px 0; }
+    .tf-hint { font-size: 13px; color: var(--grey-500); margin-top: 5px; padding: 0 20px 10px; }
+    .tf-err  { font-size: 13px; color: var(--red-500); display: none; padding: 4px 20px 0; }
     .tf-err.on { display: block; }
 
-    /* ─── STEP 2: ACCORDION ──────────────── */
+    /* ─── ACCORDION ──────────────────── */
     .acc-wrap { padding: 0 16px; display: flex; flex-direction: column; gap: 8px; }
-
     .acc-block { background: #fff; border-radius: 16px; overflow: hidden; }
 
-    /* Accordion header = TDS ListRow style */
     .acc-head {
-      display: flex;
-      align-items: center;
-      padding: 18px 20px;
-      cursor: pointer;
-      user-select: none;
-      gap: 12px;
+      display: flex; align-items: center;
+      padding: 18px 20px; cursor: pointer;
+      user-select: none; gap: 12px;
       -webkit-tap-highlight-color: transparent;
       transition: background .12s;
     }
     .acc-head:active { background: var(--grey-50); }
 
-    .acc-cat-name {
-      flex: 1;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--grey-900);
-    }
+    .acc-cat-name { flex: 1; font-size: 16px; font-weight: 700; color: var(--grey-900); }
 
     .acc-badge {
-      font-size: 12px;
-      font-weight: 700;
-      background: var(--blue-500);
-      color: #fff;
-      border-radius: 99px;
-      padding: 2px 9px;
-      display: none;
+      font-size: 12px; font-weight: 700;
+      background: var(--blue-500); color: #fff;
+      border-radius: 99px; padding: 2px 9px; display: none;
     }
     .acc-badge.show { display: inline-block; }
 
-    .acc-arrow {
-      color: var(--grey-400);
-      transition: transform .25s;
-      flex-shrink: 0;
-    }
+    .acc-arrow { color: var(--grey-400); transition: transform .25s; flex-shrink: 0; }
     .acc-head.open .acc-arrow { transform: rotate(180deg); }
 
-    /* Accordion body */
-    .acc-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .3s cubic-bezier(.4,0,.2,1);
-    }
-    .acc-body.open { max-height: 2000px; }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height .3s cubic-bezier(.4,0,.2,1); }
+    .acc-body.open { max-height: 3000px; }
 
     .acc-divider { height: 1px; background: var(--grey-100); margin: 0 20px; }
 
-    /* Product row — TDS ListRow style */
+    /* ─── Product row ────────────────── */
     .prod-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: flex; align-items: center; gap: 12px;
       padding: 16px 20px;
       border-bottom: 1px solid var(--grey-100);
       transition: background .12s;
@@ -218,129 +163,102 @@
     .prod-row:last-child { border-bottom: none; }
     .prod-row.sel { background: var(--blue-50); }
 
+    /* grouped product row overrides */
+    .prod-row.grouped {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .prod-main-row {
+      display: flex; align-items: center; gap: 12px;
+    }
+
     .prod-left { flex: 1; min-width: 0; }
 
-    .prod-name {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--grey-900);
-      line-height: 1.35;
-      margin-bottom: 3px;
-    }
+    .prod-name  { font-size: 15px; font-weight: 600; color: var(--grey-900); line-height: 1.35; margin-bottom: 3px; }
+    .prod-meta  { font-size: 13px; color: var(--grey-500); line-height: 1.3; }
 
-    .prod-meta {
-      font-size: 13px;
-      color: var(--grey-500);
-      line-height: 1.3;
-    }
-
-    .prod-prices {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 5px;
-    }
-
-    .prod-orig {
-      font-size: 12px;
-      color: var(--grey-400);
-      text-decoration: line-through;
-    }
-
-    .prod-promo {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--blue-500);
-    }
-
-    .prod-disc {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--blue-500);
-      background: var(--blue-50);
-      border-radius: 6px;
-      padding: 2px 6px;
-    }
+    .prod-prices { display: flex; align-items: center; gap: 6px; margin-top: 5px; }
+    .prod-orig   { font-size: 12px; color: var(--grey-400); text-decoration: line-through; }
+    .prod-promo  { font-size: 15px; font-weight: 800; color: var(--blue-500); }
+    .prod-disc   { font-size: 11px; font-weight: 700; color: var(--blue-500); background: var(--blue-50); border-radius: 6px; padding: 2px 6px; }
 
     .prod-notice {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--red-500);
-      background: var(--red-50);
-      border-radius: 6px;
-      padding: 2px 7px;
-      margin-top: 4px;
+      display: inline-block; font-size: 11px; font-weight: 600;
+      color: var(--red-500); background: var(--red-50);
+      border-radius: 6px; padding: 2px 7px; margin-top: 4px;
     }
 
-    /* TDS Numeric Spinner */
-    .spinner {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      flex-shrink: 0;
+    /* ─── Sub-rows (EX/PN, 32G/34G…) ── */
+    .sub-rows {
+      margin-top: 10px;
+      border-top: 1px dashed var(--grey-200);
+      padding-top: 6px;
+      display: flex; flex-direction: column;
     }
+    .sub-prod-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 5px 0;
+    }
+    .sub-prod-label {
+      flex: 1;
+      font-size: 13px; font-weight: 600; color: var(--grey-600);
+    }
+    .sub-spinner { display: flex; align-items: center; }
+    .sub-sp-btn {
+      width: 28px; height: 28px;
+      border: 1.5px solid var(--grey-200);
+      background: #fff; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 15px; color: var(--grey-700);
+      transition: all .12s; flex-shrink: 0; font-family: inherit; line-height: 1;
+    }
+    .sub-sp-btn:active { background: var(--grey-100); }
+    .sub-sp-btn:disabled { color: var(--grey-300); border-color: var(--grey-200); cursor: not-allowed; }
+    .sub-sp-btn.plus:not(:disabled) { color: var(--blue-500); border-color: var(--blue-500); }
+    .sub-sp-val {
+      min-width: 30px; text-align: center;
+      font-size: 14px; font-weight: 700; color: var(--grey-900);
+    }
+
+    /* ─── Spinner ────────────────────── */
+    .spinner { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
 
     .sp-btn {
       width: 36px; height: 36px;
       border: 1.5px solid var(--grey-200);
-      background: #fff;
-      border-radius: 10px;
+      background: #fff; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      font-size: 18px;
-      color: var(--grey-700);
-      transition: all .12s;
-      flex-shrink: 0;
-      font-family: inherit;
-      line-height: 1;
+      cursor: pointer; font-size: 18px; color: var(--grey-700);
+      transition: all .12s; flex-shrink: 0; font-family: inherit; line-height: 1;
     }
     .sp-btn:active { background: var(--grey-100); }
     .sp-btn:disabled { color: var(--grey-300); border-color: var(--grey-200); cursor: not-allowed; }
     .sp-btn.plus:not(:disabled) { color: var(--blue-500); border-color: var(--blue-500); }
 
     .sp-val {
-      min-width: 40px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--grey-900);
+      min-width: 40px; text-align: center;
+      font-size: 16px; font-weight: 700; color: var(--grey-900);
     }
 
-    /* ─── STEP 3: CONFIRM ────────────────── */
+    /* ─── STEP 3: CONFIRM ────────────── */
     .cf-blocks { padding: 0 16px; display: flex; flex-direction: column; gap: 10px; }
-
     .cf-card { background: #fff; border-radius: 16px; padding: 20px; }
 
     .cf-card-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--grey-500);
-      letter-spacing: .03em;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      font-size: 13px; font-weight: 600; color: var(--grey-500);
+      letter-spacing: .03em; margin-bottom: 14px;
+      display: flex; align-items: center; justify-content: space-between;
     }
 
     .cf-edit {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--blue-500);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      padding: 0;
+      font-size: 13px; font-weight: 600; color: var(--blue-500);
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; padding: 0;
     }
 
     .cf-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--grey-100);
-      gap: 16px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid var(--grey-100); gap: 16px;
     }
     .cf-row:last-child { border-bottom: none; padding-bottom: 0; }
     .cf-row:first-of-type { padding-top: 0; }
@@ -348,27 +266,18 @@
     .cf-label { font-size: 15px; color: var(--grey-600); flex-shrink: 0; }
     .cf-value { font-size: 15px; font-weight: 600; color: var(--grey-900); text-align: right; line-height: 1.4; }
 
-    /* Product confirm rows */
     .pcf-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--grey-100);
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--grey-100);
     }
     .pcf-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .pcf-name  { font-size: 15px; font-weight: 600; color: var(--grey-900); line-height: 1.35; }
-    .pcf-sub   { font-size: 13px; color: var(--grey-500); margin-top: 2px; }
-    .pcf-amt   { font-size: 16px; font-weight: 800; color: var(--grey-900); white-space: nowrap; }
+    .pcf-name { font-size: 15px; font-weight: 600; color: var(--grey-900); line-height: 1.35; }
+    .pcf-sub  { font-size: 13px; color: var(--grey-500); margin-top: 2px; }
+    .pcf-amt  { font-size: 16px; font-weight: 800; color: var(--grey-900); white-space: nowrap; }
 
-    /* Amount summary */
     .amt-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--grey-100);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid var(--grey-100);
     }
     .amt-row:last-child { border-bottom: none; padding-bottom: 0; }
     .a-l { font-size: 15px; color: var(--grey-600); }
@@ -378,30 +287,16 @@
     .amt-row.total .a-r { font-size: 22px; font-weight: 800; color: var(--blue-500); }
     .vat-note { font-size: 12px; color: var(--grey-400); text-align: right; margin-top: 8px; }
 
-    /* ─── TDS Agreement ──────────────────── */
+    /* ─── Agreement ──────────────────── */
     .agr-card { background: #fff; border-radius: 16px; padding: 20px; }
-
-    .agr-title-row {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
-    }
+    .agr-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
     .agr-title { font-size: 16px; font-weight: 700; color: var(--grey-900); }
-    .agr-req   {
-      font-size: 11px; font-weight: 700; padding: 3px 8px;
-      background: var(--blue-50); color: var(--blue-500);
-      border-radius: 6px;
-    }
+    .agr-req { font-size: 11px; font-weight: 700; padding: 3px 8px; background: var(--blue-50); color: var(--blue-500); border-radius: 6px; }
 
     .agr-body {
-      font-size: 13px;
-      color: var(--grey-600);
-      line-height: 1.75;
-      background: var(--grey-50);
-      border-radius: 10px;
-      padding: 14px 16px;
-      max-height: 80px;
-      overflow: hidden;
-      transition: max-height .35s ease;
-      margin-bottom: 10px;
+      font-size: 13px; color: var(--grey-600); line-height: 1.75;
+      background: var(--grey-50); border-radius: 10px; padding: 14px 16px;
+      max-height: 80px; overflow: hidden; transition: max-height .35s ease; margin-bottom: 10px;
     }
     .agr-body.open { max-height: 600px; }
 
@@ -414,97 +309,58 @@
 
     .agr-divider { height: 1px; background: var(--grey-100); margin-bottom: 14px; }
 
-    .agr-check-row {
-      display: flex; align-items: flex-start; gap: 12px; cursor: pointer; user-select: none;
-    }
+    .agr-check-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; user-select: none; }
 
     .tds-checkbox {
-      width: 22px; height: 22px;
-      border-radius: 6px;
-      border: 2px solid var(--grey-300);
-      flex-shrink: 0;
+      width: 22px; height: 22px; border-radius: 6px;
+      border: 2px solid var(--grey-300); flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      transition: all .15s;
-      margin-top: 1px;
-      background: #fff;
+      transition: all .15s; margin-top: 1px; background: #fff;
     }
     .tds-checkbox.on { background: var(--blue-500); border-color: var(--blue-500); }
-
     .tds-checkbox svg { display: none; }
     .tds-checkbox.on svg { display: block; }
 
-    .agr-check-text {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--grey-900);
-      line-height: 1.5;
-      padding-top: 1px;
-    }
+    .agr-check-text { font-size: 15px; font-weight: 600; color: var(--grey-900); line-height: 1.5; padding-top: 1px; }
 
-    /* ─── BOTTOM CTA (TDS FixedBottomCTA) ── */
+    /* ─── Bottom CTA ─────────────────── */
     .bottom-cta {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 393px;
-      background: #fff;
+      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; max-width: 393px; background: #fff;
       padding: 12px 20px;
       padding-bottom: max(16px, calc(10px + env(safe-area-inset-bottom)));
-      z-index: 300;
-      box-shadow: 0 -1px 0 var(--grey-200);
+      z-index: 300; box-shadow: 0 -1px 0 var(--grey-200);
     }
 
-    .cta-live {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
+    .cta-live { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
     .cta-live-label  { font-size: 14px; color: var(--grey-600); }
     .cta-live-amount { font-size: 18px; font-weight: 800; color: var(--blue-500); letter-spacing: -.5px; }
 
     .cta-btn {
-      width: 100%;
-      height: 54px;
-      background: var(--blue-500);
-      color: #fff;
-      border: none;
-      border-radius: 14px;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: -.2px;
-      transition: opacity .15s, transform .1s;
-      font-family: inherit;
+      width: 100%; height: 54px;
+      background: var(--blue-500); color: #fff;
+      border: none; border-radius: 14px;
+      font-size: 17px; font-weight: 700; cursor: pointer;
+      letter-spacing: -.2px; transition: opacity .15s, transform .1s; font-family: inherit;
     }
     .cta-btn:active { transform: scale(.98); opacity: .9; }
     .cta-btn:disabled { background: var(--grey-200); color: var(--grey-400); cursor: not-allowed; transform: none; }
 
-    /* ─── SUCCESS SCREEN ─────────────────── */
+    /* ─── Success ────────────────────── */
     .success-wrap {
       display: flex; flex-direction: column; align-items: center;
       min-height: 100vh; padding: 80px 24px 60px; text-align: center;
     }
 
     .suc-icon {
-      width: 80px; height: 80px;
-      background: var(--green-50);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px;
+      width: 80px; height: 80px; background: var(--green-50);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
     }
 
     .suc-title { font-size: 26px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 8px; }
     .suc-desc  { font-size: 16px; color: var(--grey-600); line-height: 1.6; margin-bottom: 36px; }
 
-    .order-card {
-      width: 100%;
-      background: #fff;
-      border-radius: 16px;
-      padding: 22px 24px;
-      margin-bottom: 40px;
-    }
+    .order-card { width: 100%; background: #fff; border-radius: 16px; padding: 22px 24px; margin-bottom: 40px; }
     .oc-label { font-size: 12px; font-weight: 600; color: var(--grey-500); letter-spacing: .05em; margin-bottom: 6px; }
     .oc-num   { font-size: 28px; font-weight: 800; letter-spacing: 2px; }
 
@@ -555,7 +411,7 @@
       </div>
       <div class="tf-row" style="border-bottom:none">
         <div class="tf-label">병원명과 지역</div>
-        <input class="tf-input" type="text" id="fhosp" placeholder="예) OO의원 / 강남"
+        <input class="tf-input" type="text" id="fhosp" placeholder="예) OO의원 / 강남구 논현동"
                autocorrect="off">
       </div>
     </div>
@@ -581,7 +437,6 @@
     </div>
     <div class="cf-blocks">
 
-      <!-- 선생님 정보 -->
       <div class="cf-card">
         <div class="cf-card-title">
           선생님 정보
@@ -594,7 +449,6 @@
         </div>
       </div>
 
-      <!-- 주문 제품 -->
       <div class="cf-card" id="cfProd">
         <div class="cf-card-title">
           주문 제품
@@ -602,7 +456,6 @@
         </div>
       </div>
 
-      <!-- 금액 요약 -->
       <div class="cf-card">
         <div class="cf-card-title">금액 요약</div>
         <div class="amt-row"><span class="a-l">정가 합계</span><span class="a-r" id="cfOrig">—</span></div>
@@ -611,7 +464,6 @@
         <div class="vat-note">VAT 포함 금액</div>
       </div>
 
-      <!-- 개인정보 동의 -->
       <div class="agr-card">
         <div class="agr-title-row">
           <span class="agr-title">개인정보 수집·이용 동의</span>
@@ -686,53 +538,68 @@
 
 /* ── DATA ─────────────────────────── */
 const CATS = [
-  { key:'ECM',   name:'ECM' },
-  { key:'FIL',   name:'Filler' },
-  { key:'SKN',   name:'Skin Booster' },
-  { key:'DCA',   name:'DCA' },
-  { key:'TOX',   name:'Toxin' },
-  { key:'WND',   name:'창상피복재' },
-  { key:'NDL',   name:'Needle' },
+  { key:'ECM', name:'ECM' },
+  { key:'FIL', name:'Filler' },
+  { key:'SKN', name:'Skin Booster' },
+  { key:'DCA', name:'DCA' },
+  { key:'TOX', name:'Toxin' },
+  { key:'WND', name:'창상피복재' },
+  { key:'NDL', name:'Needle' },
 ];
 
 const PRODS = {
   ECM: [
-    { id:'e1', name:'Re2O Fine',      meta:'Box · 최소 10개', unit:'Box',  orig:143000, promo:110000, min:10, stp:5 },
-    { id:'e2', name:'Re2O 150mg',     meta:'Box · 최소 10개', unit:'Box',  orig:165000, promo:121000, min:10, stp:5 },
+    { id:'e1', name:'Re2O Fine',  meta:'Box · 최소 10개', unit:'Box', orig:143000, promo:110000, min:10, stp:5 },
+    { id:'e2', name:'Re2O 150mg', meta:'Box · 최소 10개', unit:'Box', orig:165000, promo:121000, min:10, stp:5 },
   ],
   FIL: [
-    { id:'f1', name:'엘라비에 프리미어 소프트',     meta:'Box · 최소 10개', unit:'Box', orig:20000,  promo:12800,  min:10, stp:5, notice:'유효기간 27년 2월 5일' },
-    { id:'f2', name:'엘라비에 프리미어 라이트',     meta:'Box · 최소 10개', unit:'Box', orig:23000,  promo:17000,  min:10, stp:5 },
-    { id:'f3', name:'엘라비에 프리미어 딥라인',     meta:'Box · 최소 10개', unit:'Box', orig:27000,  promo:19000,  min:10, stp:5 },
-    { id:'f4', name:'엘라비에 프리미어 울트라볼륨', meta:'Box · 최소 10개', unit:'Box', orig:30000,  promo:21000,  min:10, stp:5 },
-    { id:'f5', name:'엘라비에 밸런스',             meta:'Box · 최소 10개', unit:'Box', orig:22000,  promo:20000,  min:10, stp:5 },
+    { id:'f1', name:'엘라비에 프리미어 소프트',     meta:'Box · 최소 10개', unit:'Box', orig:20000, promo:12800, min:10, stp:5, notice:'유효기간 27년 2월 5일' },
+    { id:'f2', name:'엘라비에 프리미어 라이트',     meta:'Box · 최소 10개', unit:'Box', orig:23000, promo:17000, min:10, stp:5 },
+    { id:'f3', name:'엘라비에 프리미어 딥라인',     meta:'Box · 최소 10개', unit:'Box', orig:27000, promo:19000, min:10, stp:5 },
+    { id:'f4', name:'엘라비에 프리미어 울트라볼륨', meta:'Box · 최소 10개', unit:'Box', orig:30000, promo:21000, min:10, stp:5 },
   ],
   SKN: [
-    { id:'s1', name:'리들부스터 EX',     meta:'Box · 최소 10개',  unit:'Box',  orig:180000, promo:100000, min:10, stp:5 },
-    { id:'s2', name:'리들부스터 PN',     meta:'Box · 최소 10개',  unit:'Box',  orig:180000, promo:100000, min:10, stp:5 },
-    { id:'s3', name:'에스테필 200mg',    meta:'Box · 최소 10개', unit:'Box',  orig:220000, promo:157300, min:10, stp:5 },
-    { id:'s4', name:'에스테필 Lux 50mg', meta:'Box · 최소 10개', unit:'Box',  orig:209000, promo:121000, min:10, stp:5, notice:'7월 런칭 사전 예약' },
-    { id:'s5', name:'이즈먼트 T',        meta:'vial · 최소 10개', unit:'vial', orig:24200,  promo:20900,  min:10, stp:5 },
-    { id:'s6', name:'이즈먼트 G',        meta:'vial · 최소 10개', unit:'vial', orig:44000,  promo:38500,  min:10, stp:5 },
+    { id:'s1', name:'리들부스터 EX',      meta:'Box · 최소 5개',  unit:'Box',  orig:180000, promo:100000, min:5, stp:5 },
+    { id:'s2', name:'리들부스터 PN',      meta:'Box · 최소 5개',  unit:'Box',  orig:180000, promo:100000, min:5, stp:5 },
+    { id:'s3', name:'에스테필 200mg',     meta:'Box · 최소 10개', unit:'Box',  orig:220000, promo:157300, min:10, stp:5 },
+    { id:'s4', name:'에스테필 Lux 50mg',  meta:'Box · 최소 10개', unit:'Box',  orig:209000, promo:121000, min:10, stp:5, notice:'7월 런칭 사전 예약' },
+    { id:'s5', name:'이즈먼트 T',         meta:'Vial · 최소 10개', unit:'Vial', orig:24200,  promo:20900,  min:10, stp:5 },
+    { id:'s6', name:'이즈먼트 G',         meta:'Vial · 최소 10개', unit:'Vial', orig:44000,  promo:38500,  min:10, stp:5 },
+    { id:'f5', name:'엘라비에 밸런스',    meta:'Box · 최소 10개', unit:'Box',  orig:22000,  promo:20000,  min:10, stp:5 },
   ],
   DCA: [
-    { id:'d1', name:'올리핏', meta:'vial · 최소 10개', unit:'vial', orig:66000, promo:44000, min:10, stp:5 },
+    { id:'d1', name:'올리핏', meta:'Vial · 최소 10개', unit:'Vial', orig:66000, promo:44000, min:10, stp:5 },
   ],
   TOX: [
-    { id:'t1', name:'리즈톡스 200u', meta:'vial · 최소 10개', unit:'vial', orig:33000, promo:22000, min:10, stp:5 },
+    { id:'t1', name:'리즈톡스 200u', meta:'Vial · 최소 10개', unit:'Vial', orig:33000, promo:22000, min:10, stp:5 },
   ],
   WND: [
     { id:'w1', name:'아르케', meta:'Box · 최소 10개', unit:'Box', orig:96000, promo:70000, min:10, stp:5 },
   ],
   NDL: [
-    { id:'n1', name:'9pin Needle (32G/34G)',             meta:'Box · 최소 10개 · 품목 합산 가능', unit:'Box', orig:184800, promo:138600, min:10, stp:5 },
-    { id:'n2', name:'Premium 9pin Needle (31G/32G/34G)', meta:'Box · 최소 10개 · 품목 합산 가능', unit:'Box', orig:207900, promo:155925, min:10, stp:5 },
+    {
+      id:'n1', name:'9pin Needle', meta:'Box · 최소 10개 · 품목 합산 가능',
+      unit:'Box', orig:184800, promo:138600, min:10, stp:5,
+      subs: [
+        { id:'n1_32g', label:'32G' },
+        { id:'n1_34g', label:'34G' },
+      ]
+    },
+    {
+      id:'n2', name:'Premium 9pin Needle', meta:'Box · 최소 10개 · 품목 합산 가능',
+      unit:'Box', orig:207900, promo:155925, min:10, stp:5,
+      subs: [
+        { id:'n2_31g', label:'31G' },
+        { id:'n2_32g', label:'32G' },
+        { id:'n2_34g', label:'34G' },
+      ]
+    },
   ],
 };
 
 const ALL = Object.values(PRODS).flat();
 const qty = {};
-let step  = 1;
+let step   = 1;
 let agreed = false;
 let agrOpen = false;
 
@@ -740,17 +607,22 @@ let agrOpen = false;
 const $ = id => document.getElementById(id);
 const fmt = n => Math.round(n).toLocaleString('ko-KR') + '원';
 
+function subTotal(p) {
+  if (!p.subs) return qty[p.id] || 0;
+  return p.subs.reduce((s, sub) => s + (qty[sub.id] || 0), 0);
+}
+
 function totals() {
   let orig = 0, promo = 0, items = 0;
   ALL.forEach(p => {
-    const q = qty[p.id] || 0;
-    if (q) { orig += p.orig * q; promo += p.promo * q; items += q; }
+    const q = subTotal(p);
+    if (q > 0) { orig += p.orig * q; promo += p.promo * q; items += q; }
   });
   return { orig, promo, disc: orig - promo, items };
 }
 
 function catSelected(key) {
-  return (PRODS[key] || []).reduce((s, p) => s + (qty[p.id] || 0), 0);
+  return (PRODS[key] || []).reduce((s, p) => s + subTotal(p), 0);
 }
 
 /* ── ACCORDION BUILD ──────────────── */
@@ -780,15 +652,64 @@ function buildAccordion() {
 
     wrap.appendChild(block);
   });
+
+  // ECM 기본으로 펼치기
+  const ecmHead = $('head-ECM');
+  const ecmBody = $('body-ECM');
+  if (ecmHead && ecmBody) {
+    ecmHead.classList.add('open');
+    ecmBody.classList.add('open');
+  }
 }
 
-function buildProductRows(catKey) {
-  return (PRODS[catKey] || []).map(p => {
-    const q   = qty[p.id] || 0;
-    const sel = q > 0;
-    const pct = Math.round((1 - p.promo / p.orig) * 100);
-    return `
-      <div class="prod-row${sel ? ' sel' : ''}" id="pr-${p.id}">
+function buildRegularRow(p) {
+  const q   = qty[p.id] || 0;
+  const sel = q > 0;
+  const pct = Math.round((1 - p.promo / p.orig) * 100);
+  return `
+    <div class="prod-row${sel ? ' sel' : ''}" id="pr-${p.id}">
+      <div class="prod-left">
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-meta">${p.meta}</div>
+        ${p.notice ? `<span class="prod-notice">${p.notice}</span>` : ''}
+        <div class="prod-prices">
+          <span class="prod-orig">${p.orig.toLocaleString()}원</span>
+          <span class="prod-promo">${p.promo.toLocaleString()}원</span>
+          <span class="prod-disc">${pct}%</span>
+        </div>
+      </div>
+      <div class="spinner">
+        <button class="sp-btn" onclick="chg('${p.id}',-${p.stp})" ${q===0?'disabled':''}>−</button>
+        <div class="sp-val">${q}</div>
+        <button class="sp-btn plus" onclick="chg('${p.id}',${p.stp})">+</button>
+      </div>
+    </div>`;
+}
+
+function buildGroupedRow(p) {
+  const total = subTotal(p);
+  const sel   = total > 0;
+  const pct   = Math.round((1 - p.promo / p.orig) * 100);
+
+  const subRowsHtml = sel ? `
+    <div class="sub-rows">
+      ${p.subs.map(sub => {
+        const sq = qty[sub.id] || 0;
+        return `
+        <div class="sub-prod-row">
+          <span class="sub-prod-label">${sub.label}</span>
+          <div class="sub-spinner">
+            <button class="sub-sp-btn" onclick="chgSub('${p.id}','${sub.id}',-1)" ${sq===0?'disabled':''}>−</button>
+            <div class="sub-sp-val">${sq}</div>
+            <button class="sub-sp-btn plus" onclick="chgSub('${p.id}','${sub.id}',1)">+</button>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>` : '';
+
+  return `
+    <div class="prod-row grouped${sel ? ' sel' : ''}" id="pr-${p.id}">
+      <div class="prod-main-row">
         <div class="prod-left">
           <div class="prod-name">${p.name}</div>
           <div class="prod-meta">${p.meta}</div>
@@ -800,18 +721,25 @@ function buildProductRows(catKey) {
           </div>
         </div>
         <div class="spinner">
-          <button class="sp-btn" onclick="chg('${p.id}',-${p.stp})" ${q===0?'disabled':''}>−</button>
-          <div class="sp-val">${q}</div>
+          <button class="sp-btn" onclick="chg('${p.id}',-${p.stp})" ${total===0?'disabled':''}>−</button>
+          <div class="sp-val">${total}</div>
           <button class="sp-btn plus" onclick="chg('${p.id}',${p.stp})">+</button>
         </div>
-      </div>`;
-  }).join('');
+      </div>
+      ${subRowsHtml}
+    </div>`;
+}
+
+function buildProductRows(catKey) {
+  return (PRODS[catKey] || []).map(p =>
+    p.subs ? buildGroupedRow(p) : buildRegularRow(p)
+  ).join('');
 }
 
 function refreshCatRow(catKey) {
   const body  = $('body-' + catKey);
   const badge = $('badge-' + catKey);
-  if (body)  body.innerHTML  = '<div class="acc-divider"></div>' + buildProductRows(catKey);
+  if (body) body.innerHTML = '<div class="acc-divider"></div>' + buildProductRows(catKey);
   const sel = catSelected(catKey);
   if (badge) {
     badge.textContent = sel + '개';
@@ -830,23 +758,61 @@ window.toggleAcc = function(key) {
 
 /* ── STEPPER ──────────────────────── */
 window.chg = function(id, delta) {
-  const p   = ALL.find(x => x.id === id);
+  const p = ALL.find(x => x.id === id);
   if (!p) return;
-  let cur = qty[id] || 0;
-  let nxt = cur + delta;
-  if (nxt < 0) nxt = 0;
-  if (nxt > 0 && nxt < p.min) nxt = delta > 0 ? p.min : 0;
-  qty[id] = nxt;
 
-  // find which cat this product belongs to
+  if (p.subs) {
+    // Grouped product: parent +/- adjusts first sub (up) or last non-zero sub (down)
+    const total = subTotal(p);
+    if (delta > 0) {
+      const addAmt = (total === 0) ? p.min : p.stp;
+      qty[p.subs[0].id] = (qty[p.subs[0].id] || 0) + addAmt;
+    } else {
+      const newTotal = total - p.stp;
+      if (newTotal <= 0 || newTotal < p.min) {
+        // Zero all subs
+        p.subs.forEach(sub => { qty[sub.id] = 0; });
+      } else {
+        // Remove from last non-zero sub
+        for (let i = p.subs.length - 1; i >= 0; i--) {
+          const cur = qty[p.subs[i].id] || 0;
+          if (cur > 0) {
+            qty[p.subs[i].id] = Math.max(0, cur - p.stp);
+            break;
+          }
+        }
+      }
+    }
+  } else {
+    let cur = qty[id] || 0;
+    let nxt = cur + delta;
+    if (nxt < 0) nxt = 0;
+    if (nxt > 0 && nxt < p.min) nxt = delta > 0 ? p.min : 0;
+    qty[id] = nxt;
+  }
+
   const catKey = Object.keys(PRODS).find(k => PRODS[k].some(x => x.id === id));
+  refreshCatRow(catKey);
+  updateLive();
+};
+
+/* Sub-row spinner (e.g. EX / PN, 32G / 34G) */
+window.chgSub = function(parentId, subId, delta) {
+  const p = ALL.find(x => x.id === parentId);
+  if (!p || !p.subs) return;
+
+  let cur = qty[subId] || 0;
+  let nxt = Math.max(0, cur + delta);
+  qty[subId] = nxt;
+
+  const catKey = Object.keys(PRODS).find(k => PRODS[k].some(x => x.id === parentId));
   refreshCatRow(catKey);
   updateLive();
 };
 
 /* ── LIVE SUMMARY ─────────────────── */
 function updateLive() {
-  const t   = totals();
+  const t    = totals();
   const live = $('ctaLive');
   if (t.items > 0) {
     live.style.display = 'flex';
@@ -895,11 +861,11 @@ window.goBack = function () {
 
 function updateNav() {
   const titles = ['1 / 3', '2 / 3', '3 / 3'];
-  const topBar  = $('topBar');
-  const botCta  = $('bottomCta');
-  const back    = $('backBtn');
-  const btn     = $('ctaBtn');
-  const live    = $('ctaLive');
+  const topBar = $('topBar');
+  const botCta = $('bottomCta');
+  const back   = $('backBtn');
+  const btn    = $('ctaBtn');
+  const live   = $('ctaLive');
 
   if (step === 4) {
     topBar.style.display = 'none';
@@ -950,15 +916,27 @@ function buildConfirm() {
   $('cfPhone').textContent = $('fphone').value.trim();
   $('cfHosp').textContent  = $('fhosp').value.trim();
 
-  const sel = ALL.filter(p => (qty[p.id] || 0) > 0);
-  let rows  = sel.map(p => `
-    <div class="pcf-row">
-      <div>
-        <div class="pcf-name">${p.name}</div>
-        <div class="pcf-sub">${qty[p.id]}${p.unit} × ${p.promo.toLocaleString()}원</div>
-      </div>
-      <div class="pcf-amt">${fmt(p.promo * qty[p.id])}</div>
-    </div>`).join('');
+  const sel = ALL.filter(p => subTotal(p) > 0);
+
+  const rows = sel.map(p => {
+    const total = subTotal(p);
+    let subDetail = '';
+    if (p.subs) {
+      subDetail = p.subs
+        .filter(sub => (qty[sub.id] || 0) > 0)
+        .map(sub => `${sub.label} ${qty[sub.id]}개`)
+        .join(' / ');
+      subDetail = subDetail ? ` (${subDetail})` : '';
+    }
+    return `
+      <div class="pcf-row">
+        <div>
+          <div class="pcf-name">${p.name}</div>
+          <div class="pcf-sub">${total}${p.unit}${subDetail} × ${p.promo.toLocaleString()}원</div>
+        </div>
+        <div class="pcf-amt">${fmt(p.promo * total)}</div>
+      </div>`;
+  }).join('');
 
   $('cfProd').innerHTML = `
     <div class="cf-card-title">주문 제품 <button class="cf-edit" onclick="goToStep(2)">수정</button></div>
@@ -968,6 +946,59 @@ function buildConfirm() {
   $('cfOrig').textContent  = fmt(t.orig);
   $('cfDisc').textContent  = '− ' + fmt(t.disc);
   $('cfTotal').textContent = fmt(t.promo);
+}
+
+/* ── GOOGLE SHEETS 연동 ───────────── */
+// Apps Script 배포 URL을 아래에 붙여넣으세요
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwsvcdxG0sfxgFZ944q-tMrMislgEjsMVCEcg2FRanVnnXNYYlnkn8-qllGV10jjmoX/exec';
+
+async function submitOrder() {
+  if (!SCRIPT_URL) {
+    alert('https://script.google.com/macros/s/AKfycbwsvcdxG0sfxgFZ944q-tMrMislgEjsMVCEcg2FRanVnnXNYYlnkn8-qllGV10jjmoX/exec');
+    return;
+  }
+  const btn = $('ctaBtn');
+  btn.disabled = true;
+  btn.textContent = '접수 중…';
+
+  const t   = totals();
+  const sel = ALL.filter(p => subTotal(p) > 0);
+  const productStr = sel.map(p => {
+    const q = subTotal(p);
+    if (p.subs) {
+      const detail = p.subs
+        .filter(s => (qty[s.id] || 0) > 0)
+        .map(s => `${s.label} ${qty[s.id]}개`)
+        .join('/');
+      return `${p.name} ${q}개(${detail})`;
+    }
+    return `${p.name} ${q}${p.unit}`;
+  }).join(', ');
+
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      redirect: 'follow',
+      body: JSON.stringify({
+        name:       $('fname').value.trim(),
+        phone:      $('fphone').value.trim(),
+        hospital:   $('fhosp').value.trim(),
+        products:   productStr,
+        origTotal:  t.orig,
+        discount:   t.disc,
+        finalTotal: t.promo,
+      }),
+    });
+    const json = await res.json();
+    if (json.error) throw new Error(json.error);
+    $('orderNum').textContent = json.orderNum;
+    goToStep(4);
+  } catch (err) {
+    console.error(err);
+    alert('접수 중 오류가 발생했어요. 잠시 후 다시 시도해 주세요.');
+    btn.disabled = false;
+    btn.textContent = '주문 접수하기';
+  }
 }
 
 /* ── MAIN CTA ─────────────────────── */
@@ -981,8 +1012,7 @@ window.next = function () {
     goToStep(3);
   } else if (step === 3) {
     if (!agreed) return;
-    $('orderNum').textContent = 'HMX-' + Date.now().toString().slice(-6);
-    goToStep(4);
+    submitOrder();
   }
 };
 
