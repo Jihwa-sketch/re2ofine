@@ -942,10 +942,10 @@ function updateNav() {
     if (tooltip) tooltip.style.visibility = 'hidden';
     updateLive();
   } else if (step === 3) {
-    btn.textContent = '사전 신청하기';
+    btn.textContent = '주문 신청하기';
     btn.disabled    = !agreed;
     live.style.display = 'none';
-    if (tooltip) tooltip.style.visibility = 'hidden';
+    if (tooltip) tooltip.style.visibility = '';
   } else {
     btn.textContent = '다음';
     btn.disabled    = false;
