@@ -655,6 +655,30 @@ const ALL = Object.values(PRODS).flat();
 const qty = {};
 let step   = 1;
 let agreed = false;
+
+/* ── 유입경로 파라미터 ─────────────── */
+const FROM = new URLSearchParams(window.location.search).get('from') || 'direct';
+
+/* ── GA4 추적 ────────────────────────── */
+const stepEnterTime = {};
+function trackStep(n) {
+  const now = Date.now();
+  // 이전 스텝 체류 시간 기록
+  if (step && stepEnterTime[step]) {
+    const duration = Math.round((now - stepEnterTime[step]) / 1000);
+    gtag('event', 'step_duration', {
+      step_number: step,
+      duration_sec: duration,
+    });
+  }
+  stepEnterTime[n] = now;
+  gtag('event', 'step_view', { step_number: n, source: FROM });
+}
+// 페이지 로드 시 Step 1 진입 기록
+window.addEventListener('load', () => {
+  gtag('set', { source: FROM });
+  trackStep(1);
+});
 let agrOpen = false;
 
 /* ── HELPERS ──────────────────────── */
@@ -908,6 +932,7 @@ window.toggleAgree = function () {
 
 /* ── NAV ──────────────────────────── */
 window.goToStep = function (n) {
+  trackStep(n);
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
   $('s' + n).classList.add('on');
   step = n;
@@ -1053,11 +1078,14 @@ async function submitOrder() {
         origTotal:  t.orig,
         discount:   t.disc,
         finalTotal: t.promo,
+        source:     FROM,
       }),
     });
     const json = await res.json();
     if (json.error) throw new Error(json.error);
     $('orderNum').textContent = json.orderNum;
+    gtag('event', 'form_submit', { order_num: json.orderNum, source: FROM });
+    trackStep(4);
     goToStep(4);
   } catch (err) {
     console.error(err);
