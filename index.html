@@ -93,7 +93,7 @@
     .screen.on { display: block; animation: up .22s ease; }
     @keyframes up { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 
-    .s-head { padding: 20px 24px 28px; }
+    .s-head { padding: 20px 24px 28px; text-align: left; }
     .s-step  { font-size: 13px; font-weight: 600; color: var(--blue-500); letter-spacing: .06em; margin-bottom: 8px; }
     .s-title { font-size: 26px; font-weight: 800; line-height: 1.25; letter-spacing: -.5px; color: var(--grey-900); margin-bottom: 6px; }
     .s-desc  { font-size: 15px; color: var(--grey-600); line-height: 1.55; }
@@ -273,7 +273,7 @@
     .pcf-row:last-child { border-bottom: none; padding-bottom: 0; }
     .pcf-name { font-size: 15px; font-weight: 600; color: var(--grey-900); line-height: 1.35; }
     .pcf-sub  { font-size: 13px; color: var(--grey-500); margin-top: 2px; }
-    .pcf-amt  { font-size: 16px; font-weight: 800; color: var(--grey-900); white-space: nowrap; }
+    .pcf-amt  { font-size: 15px; font-weight: 700; color: var(--grey-900); white-space: nowrap; }
 
     .amt-row {
       display: flex; justify-content: space-between; align-items: center;
@@ -330,6 +330,43 @@
       padding: 12px 20px;
       padding-bottom: max(16px, calc(10px + env(safe-area-inset-bottom)));
       z-index: 300; box-shadow: 0 -1px 0 var(--grey-200);
+    }
+
+    /* ─── CTA Tooltip bubble ─────────── */
+    .cta-btn-wrap {
+      position: relative;
+    }
+    .cta-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%; transform: translateX(-50%);
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .cta-btn-wrap:hover .cta-tooltip,
+    .cta-btn-wrap.show-tip .cta-tooltip {
+      opacity: 1;
+    }
+    .cta-tooltip-inner {
+      display: inline-block;
+      background: #fef08a;
+      color: #713f12;
+      border: 1.5px solid #fde047;
+      font-size: 13px; font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 20px;
+      position: relative;
+    }
+    .cta-tooltip-inner::after {
+      content: '';
+      position: absolute;
+      bottom: -7px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #fde047;
     }
 
     .cta-live { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
@@ -395,7 +432,7 @@
     <div class="s-head">
       <div class="s-step">STEP 1</div>
       <div class="s-title">선생님 정보를 입력해주세요</div>
-      <div class="s-desc">주문 접수에만 사용돼요</div>
+      <div class="s-desc">지금은 결제 없이 신청만 해요</div>
     </div>
 
     <div class="tf-block">
@@ -423,7 +460,7 @@
     <div class="s-head">
       <div class="s-step">STEP 2</div>
       <div class="s-title">원하는 제품을 골라주세요</div>
-      <div class="s-desc">카테고리를 눌러 펼쳐보세요</div>
+      <div class="s-desc">프로모션 할인가는 7월 10일까지예요</div>
     </div>
     <div class="acc-wrap" id="accWrap"></div>
   </div>
@@ -432,8 +469,8 @@
   <div class="screen" id="s3">
     <div class="s-head">
       <div class="s-step">STEP 3</div>
-      <div class="s-title">주문 내용을 확인해주세요</div>
-      <div class="s-desc">언제든 수정할 수 있어요</div>
+      <div class="s-title">신청 내용을 확인해주세요</div>
+      <div class="s-desc">접수되면 담당자가 바로 연락드려요</div>
     </div>
     <div class="cf-blocks">
 
@@ -457,11 +494,12 @@
       </div>
 
       <div class="cf-card">
-        <div class="cf-card-title">금액 요약</div>
+        <div class="cf-card-title">예상 금액 안내</div>
         <div class="amt-row"><span class="a-l">정가 합계</span><span class="a-r" id="cfOrig">—</span></div>
         <div class="amt-row"><span class="a-l">할인 금액</span><span class="a-r disc" id="cfDisc">—</span></div>
-        <div class="amt-row total"><span class="a-l">최종 결제금액</span><span class="a-r" id="cfTotal">—</span></div>
+        <div class="amt-row total"><span class="a-l">프로모션 적용가</span><span class="a-r" id="cfTotal">—</span></div>
         <div class="vat-note">VAT 포함 금액</div>
+        <div style="font-size:12px;color:var(--grey-500);margin-top:10px;line-height:1.5;">※ 실제 결제는 담당자 확인 후 별도로 진행됩니다</div>
       </div>
 
       <div class="agr-card">
@@ -512,7 +550,7 @@
                 stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <div class="suc-title">주문이 접수됐어요</div>
+      <div class="suc-title">신청이 완료됐어요</div>
       <div class="suc-desc">이번 주 내로 담당자가 연락드릴 거예요</div>
       <div class="order-card">
         <div class="oc-label">접수 번호</div>
@@ -527,7 +565,12 @@
       <span class="cta-live-label" id="ctaLiveLabel">선택 없음</span>
       <span class="cta-live-amount" id="ctaLiveAmt">0원</span>
     </div>
-    <button class="cta-btn" id="ctaBtn" onclick="next()">다음</button>
+    <div class="cta-btn-wrap" id="ctaBtnWrap">
+      <div class="cta-tooltip" id="ctaTooltip">
+        <div class="cta-tooltip-inner">결제 없이 신청만 돼요, 안심하세요</div>
+      </div>
+      <button class="cta-btn" id="ctaBtn" onclick="next()">다음</button>
+    </div>
   </div>
 
 </div>
@@ -891,18 +934,23 @@ function updateNav() {
     else if (i < step) seg.classList.add('done');
   }
 
+  const tooltip = $('ctaTooltip');
+
   if (step === 2) {
     btn.textContent = '선택 완료';
     btn.disabled    = false;
+    if (tooltip) tooltip.style.visibility = 'hidden';
     updateLive();
   } else if (step === 3) {
-    btn.textContent = '주문 접수하기';
+    btn.textContent = '사전 신청하기';
     btn.disabled    = !agreed;
     live.style.display = 'none';
+    if (tooltip) tooltip.style.visibility = 'hidden';
   } else {
     btn.textContent = '다음';
     btn.disabled    = false;
     live.style.display = 'none';
+    if (tooltip) tooltip.style.visibility = '';
   }
 }
 
